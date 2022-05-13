@@ -27,9 +27,6 @@ public class Usuario {
 	@NotNull(message = "O atributo Nome é Obrigatório!")
 	private String nome;
 	
-	@Size(max = 5000,message = "O link da foto não pode ser maior do que 5000 caracteres")
-	private String foto;
-	
 	@NotNull(message = "O atributo Usuário é Obrigatório!")
 	@Email(message = "O atributo Usuário deve ser um email válido!")
 	private String usuario;
@@ -38,6 +35,9 @@ public class Usuario {
 	@Size(min = 8, message = "A Senha deve ter no mínimo 8 caracteres")
 	private String senha;
 	
+	@Size(max = 5000,message = "O link da foto não pode ser maior do que 5000 caracteres")
+	private String foto;
+	
 	@NotNull
 	private String tipo;
 	
@@ -45,6 +45,22 @@ public class Usuario {
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> postagem;
 	
+	public Usuario(Long id, String nome, String usuario, String senha, String foto, String tipo) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.usuario = usuario;
+		this.senha = senha;
+		this.foto = foto;
+		this.tipo = tipo;
+	}
+
+	public Usuario() {
+		super();
+	}
+
+
+
 	public Long getId() {
 		return id;
 	}
